@@ -1,6 +1,6 @@
 {
   "name": "@larabuli/react-ui-tree",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "description": "React tree component",
   "main": "index.js",
   "scripts": {
