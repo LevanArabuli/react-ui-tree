@@ -14,16 +14,25 @@ class App extends Component {
     tree: tree
   };
 
-  renderNode = node => {
+  renderNode = (node, shouldRenderCollapse, isCollapsed, collapseHandler) => {
     return (
-      <span
-        className={cx('node', {
-          'is-active': node === this.state.active
-        })}
-        onClick={this.onClickNode.bind(null, node)}
-      >
-        {node.module}
-      </span>
+      <div>
+        {shouldRenderCollapse && <span>
+          <span
+            className={cx('collapse', isCollapsed ? 'caret-right' : 'caret-down')}
+            onMouseDown={e => e.stopPropagation()}
+            onClick={collapseHandler}
+          />
+        </span>}
+        <span
+          className={cx('node', {
+            'is-active': node === this.state.active
+          })}
+          onClick={this.onClickNode.bind(null, node)}
+        >
+          {node.module}
+        </span>
+      </div>
     );
   };
 
